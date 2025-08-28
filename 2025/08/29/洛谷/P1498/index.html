@@ -284,7 +284,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>649 words</span>
+            <span>568 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -299,36 +299,33 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-每日一题"><a href="#Daily-每日一题" class="headerlink" title="Daily::每日一题"></a>Daily::每日一题</h2><h3 id="P1518-USACO2-4-两只塔姆沃斯牛-The-Tamworth-Two"><a href="#P1518-USACO2-4-两只塔姆沃斯牛-The-Tamworth-Two" class="headerlink" title="P1518 USACO2.4 两只塔姆沃斯牛 The Tamworth Two"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1518">P1518 USACO2.4 两只塔姆沃斯牛 The Tamworth Two</a></h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>两只牛逃跑到了森林里。Farmer John 开始用他的专家技术追捕这两头牛。你的任务是模拟他们的行为（牛和 John）。</p>
-<p>追击在 $10 \times 10$ 的平面网格内进行。一个格子可以是：一个障碍物，两头牛（它们总在一起），或者 Farmer John。两头牛和 Farmer John 可以在同一个格子内（当他们相遇时），但是他们都不能进入有障碍的格子。</p>
-<p>一个格子可以是：</p>
+    <h2 id="Daily-算法-P1498-南蛮图腾"><a href="#Daily-算法-P1498-南蛮图腾" class="headerlink" title="Daily::算法 @P1498 南蛮图腾"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1498">P1498 南蛮图腾</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>数据保证，1≤n≤10。</p>
+</blockquote>
+<p><del>应该是递归</del><br>是分治</p>
+<h3 id="抄（不会写喵）"><a href="#抄（不会写喵）" class="headerlink" title="抄（不会写喵）"></a>抄（不会写喵）</h3><p>这题是一个典型的<strong>递归分形图案绘制题</strong>。每一层图腾都是由上一层图腾构建而成，我们可以从输出样例中观察出图形的规律：</p>
+<h4 id="🧠图形结构分析"><a href="#🧠图形结构分析" class="headerlink" title="🧠图形结构分析"></a>🧠图形结构分析</h4><p>以最小单位（也就是一棵“山”）为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> /\</span><br><span class="line">/__\</span><br></pre></td></tr></table></figure>
+
+<p>从样例看出：</p>
 <ul>
-<li><code>.</code> 空地；</li>
-<li><code>*</code> 障碍物；</li>
-<li><code>C</code> 两头牛；</li>
-<li><code>F</code> Farmer John。</li>
+<li><p>第 <code>n=1</code> 层图腾是一个小三角形。</p>
+</li>
+<li><p>第 <code>n=2</code> 层是在上一层的基础上，在其底部左右复制两个缩放后的子图腾。</p>
+</li>
+<li><p>图腾结构呈现二叉树状展开，整体高度为 $2^n$，宽度为 $2^{n+1}$。</p>
+</li>
 </ul>
-<p>这里有一个地图的例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*...*.....</span><br><span class="line">......*...</span><br><span class="line">...*...*..</span><br><span class="line">..........</span><br><span class="line">...*.F....</span><br><span class="line">*.....*...</span><br><span class="line">...*......</span><br><span class="line">..C......*</span><br><span class="line">...*.*....</span><br><span class="line">.*.*......</span><br></pre></td></tr></table></figure>
-
-<p>牛在地图里以固定的方式游荡。每分钟，它们可以向前移动或是转弯。如果前方无障碍（地图边沿也是障碍），它们会按照原来的方向前进一步。否则它们会用这一分钟顺时针转 90 度。 同时，它们不会离开地图。</p>
-<p>Farmer John 深知牛的移动方法，他也这么移动。</p>
-<p>每次（每分钟）Farmer John 和两头牛的移动是同时的。如果他们在移动的时候穿过对方，但是没有在同一格相遇，我们不认为他们相遇了。当他们在某分钟末在某格子相遇，那么追捕结束。</p>
-<p>读入十行表示地图。每行都只包含 10 个字符，表示的含义和上面所说的相同。保证地图中只有一个 <code>F</code> 和一个 <code>C</code>。<code>F</code> 和 <code>C</code> 一开始不会处于同一个格子中。</p>
-<p>计算 Farmer John 需要多少分钟来抓住他的牛，假设牛和 Farmer John 一开始的行动方向都是正北（即上）。 如果 John 和牛永远不会相遇，输出 0。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入共十行，每行 10 个字符，表示如上文描述的地图。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个数字，表示 John 需要多少时间才能抓住牛们。如果 John 无法抓住牛，则输出 0。</p>
-<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h4><h5 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*...*.....</span><br><span class="line">......*...</span><br><span class="line">...*...*..</span><br><span class="line">..........</span><br><span class="line">...*.F....</span><br><span class="line">*.....*...</span><br><span class="line">...*......</span><br><span class="line">..C......*</span><br><span class="line">...*.*....</span><br><span class="line">.*.*......</span><br></pre></td></tr></table></figure>
-
-<h5 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">49</span><br></pre></td></tr></table></figure>
-
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>问题的要求有两个：</p>
-<ol>
-<li>计算相遇时的分钟数</li>
-<li>判断是否进入了死循环</li>
-</ol>
-<p>对于 .1 而言，简单模拟即可，然后判断是否循环开始时 坐标相同即可。<br>对于 .2 而言，我们需要记录整个系统（农夫和牛的坐标和朝向）的状态，然后每次循环开始时判断是否进入了相同的状态，从而判断是否进入了循环。</p>
-
+<h4 id="🧩-解决思路（递归画图）"><a href="#🧩-解决思路（递归画图）" class="headerlink" title="🧩 解决思路（递归画图）"></a>🧩 解决思路（递归画图）</h4><p>我们使用一个二维字符数组 <code>canvas</code> 来模拟整幅图形，递归地从上往下绘制：</p>
+<ul>
+<li><p>每个三角形的顶点坐标为 <code>(x, y)</code>，大小为 <code>level</code>。</p>
+</li>
+<li><p>若 <code>level == 1</code>，直接画出基本三角形。</p>
+</li>
+<li><p>否则，先在顶部画一个 <code>level-1</code> 的图腾，然后在底部左、右各画一个 <code>level-1</code> 的图腾。</p>
+</li>
+</ul>
+<h4 id="✅-C-实现代码如下："><a href="#✅-C-实现代码如下：" class="headerlink" title="✅ C++ 实现代码如下："></a>✅ C++ 实现代码如下：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_N = <span class="number">11</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_H = <span class="number">1</span> &lt;&lt; MAX_N;      <span class="comment">// 高度</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_W = (<span class="number">1</span> &lt;&lt; (MAX_N + <span class="number">1</span>)); <span class="comment">// 宽度</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> canvas[MAX_H][MAX_W];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 画三角形图腾，(x, y) 是顶点坐标，level 是层级</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">draw</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> level)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (level == <span class="number">1</span>) &#123;</span><br><span class="line">        canvas[x][y] = <span class="string">&#x27;/&#x27;</span>;</span><br><span class="line">        canvas[x][y + <span class="number">1</span>] = <span class="string">&#x27;\\&#x27;</span>;</span><br><span class="line">        canvas[x + <span class="number">1</span>][y - <span class="number">1</span>] = <span class="string">&#x27;/&#x27;</span>;</span><br><span class="line">        canvas[x + <span class="number">1</span>][y] = <span class="string">&#x27;_&#x27;</span>;</span><br><span class="line">        canvas[x + <span class="number">1</span>][y + <span class="number">1</span>] = <span class="string">&#x27;_&#x27;</span>;</span><br><span class="line">        canvas[x + <span class="number">1</span>][y + <span class="number">2</span>] = <span class="string">&#x27;\\&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> h = <span class="number">1</span> &lt;&lt; (level - <span class="number">1</span>); <span class="comment">// 子图腾的高度</span></span><br><span class="line">    <span class="comment">// 顶部图腾</span></span><br><span class="line">    <span class="built_in">draw</span>(x, y, level - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 左下图腾</span></span><br><span class="line">    <span class="built_in">draw</span>(x + h, y - h, level - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 右下图腾</span></span><br><span class="line">    <span class="built_in">draw</span>(x + h, y + h, level - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> height = <span class="number">1</span> &lt;&lt; n;</span><br><span class="line">    <span class="type">int</span> width = <span class="number">1</span> &lt;&lt; (n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化画布为空格</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; height; ++i)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; width; ++j)</span><br><span class="line">            canvas[i][j] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从顶点开始绘制整个图腾</span></span><br><span class="line">    <span class="built_in">draw</span>(<span class="number">0</span>, width / <span class="number">2</span> - <span class="number">1</span>, n);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出图腾</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; height; ++i) &#123;</span><br><span class="line">        <span class="comment">// 去掉右侧多余空格</span></span><br><span class="line">        <span class="type">int</span> right = width - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &gt;= <span class="number">0</span> &amp;&amp; canvas[i][right] == <span class="string">&#x27; &#x27;</span>) right--;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= right; ++j)</span><br><span class="line">            cout &lt;&lt; canvas[i][j];</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </article>
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
@@ -338,7 +335,7 @@
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1596/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1518/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
           
         </a>
@@ -346,7 +343,7 @@
     </div>
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1498/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1478/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
