@@ -19,7 +19,7 @@
 
 
 
-<title>P3156 | L4place&#39;s algorithm space.</title>
+<title>P3156 【深基15.例1】询问学号 | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P3156
+        P3156 【深基15.例1】询问学号
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P3156
+        P3156 【深基15.例1】询问学号
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>78 words</span>
+            <span>75 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P3156-【深基15-例1】询问学号"><a href="#Daily-算法-P3156-【深基15-例1】询问学号" class="headerlink" title="Daily::算法 @P3156 【深基15.例1】询问学号"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3156">P3156 【深基15.例1】询问学号</a></h2><h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int32_t</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; cin &gt;&gt; a[i++]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; idx;</span><br><span class="line">        cout &lt;&lt; a[idx] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <h2 id="P3156-【深基15-例1】询问学号"><a href="#P3156-【深基15-例1】询问学号" class="headerlink" title="P3156 【深基15.例1】询问学号"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3156">P3156 【深基15.例1】询问学号</a></h2><h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int32_t</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; cin &gt;&gt; a[i++]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        cin &gt;&gt; idx;</span><br><span class="line">        cout &lt;&lt; a[idx] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
 
@@ -336,14 +336,14 @@
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3205/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P3205
+          P3205 [HNOI2010] 合唱队
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P2895/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P2895
+          P2895 [USACO08FEB] Meteor Shower S
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

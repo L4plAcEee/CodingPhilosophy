@@ -19,7 +19,7 @@
 
 
 
-<title>P4995 | L4place&#39;s algorithm space.</title>
+<title>P4995 跳跳！ | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P4995
+        P4995 跳跳！
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P4995
+        P4995 跳跳！
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>263 words</span>
+            <span>260 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P4995-跳跳！"><a href="#Daily-算法-P4995-跳跳！" class="headerlink" title="Daily::算法 @P4995 跳跳！"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4995">P4995 跳跳！</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>&#x3D;&#x3D;为了给小 F 展现你超级跳的本领，你决定跳到每个石头上各一次，并最终停在任意一块石头上，并且小跳蛙想耗费<strong>尽可能多</strong>的体力值。&#x3D;&#x3D;</p>
+    <h2 id="P4995-跳跳！"><a href="#P4995-跳跳！" class="headerlink" title="P4995 跳跳！"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4995">P4995 跳跳！</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>&#x3D;&#x3D;为了给小 F 展现你超级跳的本领，你决定跳到每个石头上各一次，并最终停在任意一块石头上，并且小跳蛙想耗费<strong>尽可能多</strong>的体力值。&#x3D;&#x3D;</p>
 <p>贪心思路：<br>	如果把初始位置（处于地面）看作是处于最低的石头，则整个流程应该是 从当前未来到的最低石头 -&gt; 当前未来到的最高石头 -&gt; 当前未来到的最低石头…<br>	目的和 刚刚做的 P1094 类似，是找到某个组合，使其值最大。</p>
 <p>实现：<br>	和刚刚做的 P1094 一样，排序后首尾双指针。</p>
 <h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_val</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a - b) * (a - b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    s[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n + <span class="number">1</span>; cin &gt;&gt; s[i++]);</span><br><span class="line">    <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = n;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        ans += <span class="built_in">get_val</span>(s[l], s[r]);</span><br><span class="line">        l++;</span><br><span class="line">        ans += <span class="built_in">get_val</span>(s[l], s[r]);</span><br><span class="line">        r--;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -332,6 +332,12 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E8%B4%AA%E5%BF%83/">#贪心</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
@@ -339,14 +345,14 @@
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P5143/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P5143
+          P5143 攀爬者
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P4913/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P4913
+          P4913 【深基16.例3】二叉树深度
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

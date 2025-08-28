@@ -19,7 +19,7 @@
 
 
 
-<title>P3392 | L4place&#39;s algorithm space.</title>
+<title>P3392 涂条纹 | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P3392
+        P3392 涂条纹
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P3392
+        P3392 涂条纹
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>338 words</span>
+            <span>335 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P3392-涂条纹"><a href="#Daily-算法-P3392-涂条纹" class="headerlink" title="Daily::算法 @P3392 涂条纹"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3392">P3392 涂条纹</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>压缩数组加一维前缀和优化查询时间，<br>遍历枚举所有可能。</p>
+    <h2 id="P3392-涂条纹"><a href="#P3392-涂条纹" class="headerlink" title="P3392 涂条纹"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3392">P3392 涂条纹</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>压缩数组加一维前缀和优化查询时间，<br>遍历枚举所有可能。</p>
 <p>实际上是个一维问题？<br>在一维上找划分点的问题。</p>
 <h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> dbg(x) cout &lt;&lt; #x &lt;&lt; <span class="string">&quot; : &quot;</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> N, M;</span><br><span class="line"><span class="comment">// char mat[51][51];</span></span><br><span class="line"><span class="type">int</span> cnt_W[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;, cnt_B[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;, cnt_R[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int32_t</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin  &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; M; ++j) &#123;</span><br><span class="line">            <span class="comment">// cin &gt;&gt; mat[i][j];</span></span><br><span class="line">            <span class="type">char</span> tmp;</span><br><span class="line">            cin &gt;&gt; tmp;</span><br><span class="line">            <span class="keyword">if</span> (tmp == <span class="string">&#x27;W&#x27;</span>) cnt_W[i]++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (tmp == <span class="string">&#x27;B&#x27;</span>) cnt_B[i]++;</span><br><span class="line">            <span class="keyword">else</span> cnt_R[i]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt = INT_MAX;</span><br><span class="line">    <span class="comment">// 修改循环边界：i表示白色区域的行数，j表示白色+蓝色区域的总行数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N - <span class="number">2</span>; ++i) &#123;         <span class="comment">// 白色区域：[0, i)，至少1行，最多N-2行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= N - <span class="number">1</span>; ++j) &#123; <span class="comment">// 蓝色区域：[i, j)，至少1行；红色区域：[j, N)，至少1行</span></span><br><span class="line">            <span class="type">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// 白色区域：需要把B和R涂成W</span></span><br><span class="line">            tmp += <span class="built_in">reduce</span>(cnt_B, cnt_B + i, <span class="number">0</span>) + <span class="built_in">reduce</span>(cnt_R, cnt_R + i, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 蓝色区域：需要把W和R涂成B</span></span><br><span class="line">            tmp += <span class="built_in">reduce</span>(cnt_W + i, cnt_W + j, <span class="number">0</span>) + <span class="built_in">reduce</span>(cnt_R + i, cnt_R + j, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 红色区域：需要把W和B涂成R</span></span><br><span class="line">            tmp += <span class="built_in">reduce</span>(cnt_W + j, cnt_W + N, <span class="number">0</span>) + <span class="built_in">reduce</span>(cnt_B + j, cnt_B + N, <span class="number">0</span>);</span><br><span class="line">            cnt = <span class="built_in">min</span>(tmp, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -330,6 +330,16 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">#前缀和</a>
+        </span>
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E5%8E%8B%E7%BC%A9%E6%95%B0%E7%BB%84/">#压缩数组</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
@@ -337,14 +347,14 @@
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3613/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P3613
+          P3613 【深基15.例2】寄包柜
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3205/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P3205
+          P3205 [HNOI2010] 合唱队
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

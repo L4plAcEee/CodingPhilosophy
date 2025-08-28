@@ -19,7 +19,7 @@
 
 
 
-<title>P3743 | L4place&#39;s algorithm space.</title>
+<title>P3743 小鸟的设备 | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P3743
+        P3743 小鸟的设备
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P3743
+        P3743 小鸟的设备
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>961 words</span>
+            <span>958 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P3743-小鸟的设备"><a href="#Daily-算法-P3743-小鸟的设备" class="headerlink" title="Daily::算法 @P3743 小鸟的设备"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">P3743 小鸟的设备</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
+    <h2 id="P3743-小鸟的设备"><a href="#P3743-小鸟的设备" class="headerlink" title="P3743 小鸟的设备"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">P3743 小鸟的设备</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
 <p>对于 100% 的数据，$1≤n≤100000，1≤p≤100000，1≤ai​,bi​≤100000$。</p>
 </blockquote>
 <p>首先看答案单调性<br>题目要求：求最大使用时限<br>-&gt; 注意到，比这个小的时限也合法，但是比这个时限大的时间就非法，单调性成立。<br>-&gt; 二分答案思路成立<br>设计 Check逻辑：<br>每个设备的初始持续时间为 $b_i &#x2F; a_i$ ，<br>如果给某个设备充电，则可以为其增加 $t_i*p&#x2F;a_i$ 的持续时间。<br>然后遍历所有设备，检查满足初始持续时间小于 ans 的设备，然后为其分润 时间 去充电直到持续时间 &#x3D;&#x3D; ans，并记录所需时间，假如记录的时间和  &gt; ans ，则ans 非法。</p>
@@ -374,21 +374,27 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E4%BA%8C%E5%88%86/">#二分</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3799/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3654/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P3799
+          P3654 First Step (ファーストステップ)
         </a>
       
     </div>
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3654/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P3654
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3613/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          P3613 【深基15.例2】寄包柜
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

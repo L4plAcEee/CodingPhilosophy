@@ -19,7 +19,7 @@
 
 
 
-<title>P2249 | L4place&#39;s algorithm space.</title>
+<title>P2249 【深基13.例1】查找 | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P2249
+        P2249 【深基13.例1】查找
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P2249
+        P2249 【深基13.例1】查找
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>172 words</span>
+            <span>169 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P2249-【深基13-例1】查找"><a href="#Daily-算法-P2249-【深基13-例1】查找" class="headerlink" title="Daily::算法 @P2249 【深基13.例1】查找"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">P2249 【深基13.例1】查找</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>二分查找模板题没什么好说练就完事了。<br>注意 本题输入输出量较大，请使用较快的 IO 方式。</p>
+    <h2 id="P2249-【深基13-例1】查找"><a href="#P2249-【深基13-例1】查找" class="headerlink" title="P2249 【深基13.例1】查找"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">P2249 【深基13.例1】查找</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>二分查找模板题没什么好说练就完事了。<br>注意 本题输入输出量较大，请使用较快的 IO 方式。</p>
 <p>注意含义：<br>i 代表 从 $[0, i)$ 区间 该区间 所有值都应该小于 num<br>j 代表 从 $(j, n - 1]$ 区间 该区间所有值都应该 大于或等于 num</p>
 <p>所以当循环停止之后，i 将会落在第一个可能等于 num 的位置上。</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">        <span class="type">int</span> mid =  i + (j - i) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[mid] &lt; num) &#123;</span><br><span class="line">            i = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a[i] == num ? i + <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -332,6 +332,12 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E4%BA%8C%E5%88%86/">#二分</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
@@ -339,14 +345,14 @@
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P2392/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P2392
+          P2392 kkksc03考前临时抱佛脚
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P2241/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P2241
+          P2241 统计方形（数据加强版）
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

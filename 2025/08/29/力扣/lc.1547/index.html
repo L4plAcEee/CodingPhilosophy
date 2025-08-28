@@ -19,7 +19,7 @@
 
 
 
-<title>lc.1547 | L4place&#39;s algorithm space.</title>
+<title>lc.1547 - minimum-cost-to-cut-a-stick | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        lc.1547
+        lc.1547 - minimum-cost-to-cut-a-stick
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        lc.1547
+        lc.1547 - minimum-cost-to-cut-a-stick
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>208 words</span>
+            <span>218 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,11 +321,20 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>和[[lc.1039]]类似<br>都是区间DP题型中，枚举划分点的存在。<br>本题要先把 0 和 n 视为端点并加入 cuts然后排序,最后对 cuts 进行划分点枚举区间DP才是正解。</p>
+    <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-cost-to-cut-a-stick/">https://leetcode.cn/problems/minimum-cost-to-cut-a-stick/</a></p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>和[[lc.1039]]类似<br>都是区间DP题型中，枚举划分点的存在。<br>本题要先把 0 和 n 视为端点并加入 cuts然后排序,最后对 cuts 进行划分点枚举区间DP才是正解。</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;cuts, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;dp, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[l][r] != <span class="number">-1</span>) <span class="keyword">return</span> dp[l][r];</span><br><span class="line">        <span class="keyword">if</span> (l + <span class="number">1</span> &gt;= r) <span class="keyword">return</span> dp[l][r] = <span class="number">0</span>; <span class="comment">// 相邻或相等时无法再切割</span></span><br><span class="line">        dp[l][r] = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> m = l + <span class="number">1</span>; m &lt; r; ++m) &#123;</span><br><span class="line">            dp[l][r] = <span class="built_in">min</span>(dp[l][r], <span class="built_in">f</span>(cuts, dp, l, m) + <span class="built_in">f</span>(cuts, dp, m, r) + cuts[r] - cuts[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[l][r];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minCost</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; cuts)</span> </span>&#123;</span><br><span class="line">        cuts.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        cuts.<span class="built_in">push_back</span>(n);</span><br><span class="line">        <span class="built_in">sort</span>(cuts.<span class="built_in">begin</span>(), cuts.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> sz = cuts.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(sz, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(sz, <span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">f</span>(cuts, dp, <span class="number">0</span>, sz - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
   </article>
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
+    
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E5%8C%BA%E9%97%B4DP/">#区间DP</a>
+        </span>
+      
     
   </div>
   <!-- prev and next -->
@@ -334,14 +343,14 @@
       
         <a href="/2025/08/29/%E5%8A%9B%E6%89%A3/lc.312/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          lc.312
+          lc.312 - burst-balloons
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E5%8A%9B%E6%89%A3/lc.1312/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          lc.1312
+          lc.1312 - minimum-insertion-steps-to-make-a-string-palindrome
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

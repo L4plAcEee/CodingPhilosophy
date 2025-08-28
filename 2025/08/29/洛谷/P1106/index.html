@@ -19,7 +19,7 @@
 
 
 
-<title>P1106 | L4place&#39;s algorithm space.</title>
+<title>P1106 删数问题 | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P1106
+        P1106 删数问题
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P1106
+        P1106 删数问题
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>726 words</span>
+            <span>723 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P1106-删数问题"><a href="#Daily-算法-P1106-删数问题" class="headerlink" title="Daily::算法 @P1106 删数问题"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1106">P1106 删数问题</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>贪心策略：<br>~~删除 K 次，每次都尽可能删除 数位上数字较大的。 ~~<br>只过了3&#x2F;7的点 似乎不对捏<br>是不是排序破坏了顺序？<br>要不直接暴力模拟 K 次删除？</p>
+    <h2 id="P1106-删数问题"><a href="#P1106-删数问题" class="headerlink" title="P1106 删数问题"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1106">P1106 删数问题</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>贪心策略：<br>~~删除 K 次，每次都尽可能删除 数位上数字较大的。 ~~<br>只过了3&#x2F;7的点 似乎不对捏<br>是不是排序破坏了顺序？<br>要不直接暴力模拟 K 次删除？</p>
 <p>还是错了，看来贪心策略有问题。</p>
 <h3 id="勘误"><a href="#勘误" class="headerlink" title="勘误"></a>勘误</h3><p>这个代码有一个关键的逻辑错误。你的算法是每次删除<strong>最大的数字</strong>，但这并不能保证得到最小的结果。</p>
 <p>让我们用例子来说明问题：</p>
@@ -359,6 +359,16 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E6%A8%A1%E6%8B%9F/">#模拟</a>
+        </span>
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E8%B4%AA%E5%BF%83/">#贪心</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
@@ -366,14 +376,14 @@
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1116/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P1116
+          P1116 车厢重组
         </a>
       
     </div>
     <div>
       
         <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P1104/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P1104
+          P1104 生日
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       

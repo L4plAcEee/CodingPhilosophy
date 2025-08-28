@@ -19,7 +19,7 @@
 
 
 
-<title>P3654 | L4place&#39;s algorithm space.</title>
+<title>P3654 First Step (ファーストステップ) | L4place&#39;s algorithm space.</title>
 
 
 
@@ -196,7 +196,7 @@
         </h2>
       </a>
       <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        P3654
+        P3654 First Step (ファーストステップ)
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        P3654
+        P3654 First Step (ファーストステップ)
       </h1>
       <div>
         <section class="flex items-center gap-3 text-sm">
@@ -306,7 +306,7 @@
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
-            <span>201 words</span>
+            <span>198 words</span>
           </span>
           
             <span class="text-gray-400">·</span>
@@ -321,7 +321,7 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <h2 id="Daily-算法-P3654-First-Step-ファーストステップ"><a href="#Daily-算法-P3654-First-Step-ファーストステップ" class="headerlink" title="Daily::算法 @P3654 First Step (ファーストステップ)"></a>Daily::算法 @<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3654">P3654 First Step (ファーストステップ)</a></h2><h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><h4 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h4><p>需要注意k&#x3D;1的时候，横着站竖着站一样，所以统计的结果还要除以2。</p>
+    <h2 id="P3654-First-Step-ファーストステップ"><a href="#P3654-First-Step-ファーストステップ" class="headerlink" title="P3654 First Step (ファーストステップ)"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3654">P3654 First Step (ファーストステップ)</a></h2><h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><h4 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h4><p>需要注意k&#x3D;1的时候，横着站竖着站一样，所以统计的结果还要除以2。</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> R, C, K;</span><br><span class="line"><span class="type">char</span> grids[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> cnt_i = <span class="number">0</span>, cnt_j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> idx = i; idx &lt; R &amp;&amp; cnt_i &lt; K &amp;&amp; grids[idx][j] != <span class="string">&#x27;#&#x27;</span>; ++idx, ++cnt_i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> idx = j; idx &lt; C &amp;&amp; cnt_j &lt; K &amp;&amp; grids[i][idx] != <span class="string">&#x27;#&#x27;</span>; ++idx, ++cnt_j);</span><br><span class="line">    <span class="keyword">return</span> (cnt_i == K ? <span class="number">1</span> : <span class="number">0</span>) + (cnt_j == K ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int32_t</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; R &gt;&gt; C &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; ++j) &#123;</span><br><span class="line">            cin &gt;&gt; grids[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (grids[i][j] == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">f</span>(i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; (K == <span class="number">1</span> ? ans / <span class="number">2</span> : ans) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -330,21 +330,27 @@
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
     
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/DFS/">#DFS</a>
+        </span>
+      
+    
   </div>
   <!-- prev and next -->
   <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3743/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3799/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
-          P3743
+          P3799 小 Y 拼木棒
         </a>
       
     </div>
     <div>
       
-        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3613/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
-          P3613
+        <a href="/2025/08/29/%E6%B4%9B%E8%B0%B7/P3743/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          P3743 小鸟的设备
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
       
