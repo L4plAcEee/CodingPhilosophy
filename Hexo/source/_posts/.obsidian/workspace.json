@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "6fdb52ff2dda4f9b",
+    "type": "split",
+    "children": [
+      {
+        "id": "e23c7d5c8cf98d0b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cac4e90fe4ee636",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "浅尝so-vits-svc.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "浅尝so-vits-svc"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a25130b62801e627",
+    "type": "split",
+    "children": [
+      {
+        "id": "f4d774000811e138",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e785d1dfb2b37da7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "6a93ff439413b16e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#TODO  ",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "63609c041536c0b8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "ad90620b68ddd797",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea49a6785b3c62aa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "964c411c3caa9fbe",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "洛谷/P3205.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "P3205 的反向链接列表"
+            }
+          },
+          {
+            "id": "b1b047c3eca7e1ea",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "洛谷/P3205.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "P3205 的出链列表"
+            }
+          },
+          {
+            "id": "3b6b54d27a555a3c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "ed3cc66aa00cf94a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "洛谷/P3205.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "P3205 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:创建新数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "1cac4e90fe4ee636",
+  "lastOpenFiles": [
+    "浅尝so-vits-svc.md",
+    "笔记的职责.md",
+    "非持续更新/基于bilibili哈基米音乐视频的用户画像分析与分类研究.md",
+    "非持续更新/基于ChatGPT等生成式AI辅助计算机领域文献检索的优势与局限分析.md",
+    "非持续更新/2025赛季的终焉.md",
+    "非持续更新/学习方法论.md",
+    "非持续更新/JavaWeb期末复习.md",
+    "非持续更新/关于AI辅助编码的硬核真相.md",
+    "非持续更新/算法学习，个人总结-0x00.md",
+    "持续更新/一些资源分享.md",
+    "非持续更新/操作系统期末复习.md",
+    "非持续更新/HELLOL4PLACE.md",
+    "非持续更新/MiniMax搜索方法.md",
+    "非持续更新/Codeforces Round 1027 (Div. 3).md",
+    "非持续更新/Codeforces Round 1017 (Div. 4).md",
+    "非持续更新/AC自动机.md",
+    "非持续更新/GitHub指南之First PR.md",
+    "论文",
+    "非持续更新/写一个baka也能看懂的Brainfuck解释器.md",
+    "非持续更新/小刻也想学爪哇之浅尝苍穹外卖.md",
+    "非持续更新/小刻也想学吸佳佳之minilog.md",
+    "非持续更新/小刻也想玩爬虫之爬爬学校平台.md",
+    "非持续更新/小刻也能看懂的Obsidian2Hexo发布脚本.md",
+    "非持续更新/小刻也能看懂的微软国内服务代理方法.md",
+    "非持续更新/小刻也能看懂的机器学习柱状图图表绘制方法.md",
+    "非持续更新/琪露诺的FastAPI教室.md",
+    "非持续更新/⑨也能看懂的怎么从汇编入手C语言.md",
+    "持续更新",
+    "-校园生活",
+    "-算法",
+    "-比赛",
+    "-论文",
+    "-转载",
+    "题解",
+    "-碎碎念",
+    "题解/codeforces",
+    "_resource/_images/unused/屏幕截图_26-6-2025_01627_mooc1.chaoxing.com.jpeg",
+    "_resource/_images/unused/屏幕截图_25-6-2025_235033_mooc1.chaoxing.com.jpeg",
+    "_resource/_images/unused/屏幕截图_25-6-2025_22496_mooc1.chaoxing.com.jpeg",
+    "_resource/_images/unused/ffb0da3cc2af4dead01d8061aa491e17_MD5.jpeg",
+    "_resource/_images/unused/ff8b2b087b5982c7a4bb3a2641b7d691_MD5.jpeg",
+    "_resource/_images/unused/f75b1146eca815aa53493aa5caa953d4_MD5.jpeg",
+    "_resource/_images/unused/f7181b05394ac7b30b65117223cdd4b4_MD5.jpeg",
+    "_resource/_images/unused/f71403c2d8632323cdd1b830eab95fad_MD5.jpeg",
+    "_resource/_images/unused/f6df7dacd8e7cf6b5ce9f2424e239156_MD5.jpeg",
+    "_resource/_images/unused/ee6dc468d6a00b9dda4ce1dcc2aa297c_MD5.jpeg"
+  ]
+}
